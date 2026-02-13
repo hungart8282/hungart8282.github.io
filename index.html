@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HungArt | Portfolio</title>
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;margin:0;background:#0b0f17;color:#e8eefc}
+    .wrap{max-width:980px;margin:0 auto;padding:48px 20px}
+    .card{background:#121a2a;border:1px solid #24324d;border-radius:18px;padding:28px;box-shadow:0 12px 30px rgba(0,0,0,.25)}
+    .top{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+    .avatar{width:84px;height:84px;border-radius:18px;background:#1c2a44;display:grid;place-items:center;font-weight:800}
+    h1{margin:0;font-size:30px}
+    .sub{opacity:.82;margin-top:6px;line-height:1.5}
+    .btns{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+    a.btn{display:inline-block;padding:10px 14px;border-radius:12px;border:1px solid #2e4063;color:#e8eefc;text-decoration:none}
+    a.btn:hover{background:#1a2640}
+    .grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:18px}
+    @media(min-width:900px){.grid{grid-template-columns:1fr 1fr}}
+    .box{background:#0f1626;border:1px solid #22304a;border-radius:16px;padding:18px}
+    h2{margin:0 0 10px;font-size:18px}
+    p{margin:0;opacity:.9;line-height:1.6}
+    ul{margin:8px 0 0;padding-left:18px;opacity:.9;line-height:1.8}
+    .footer{opacity:.7;margin-top:22px;font-size:14px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="top">
+        <div class="avatar">HA</div>
+        <div>
+          <h1>HungArt</h1>
+          <div class="sub">Graphic Designer • Đà Nẵng • 8+ năm kinh nghiệm<br/>T-shirt design • Mockup • Print-ready files</div>
+          <div class="btns">
+            <a class="btn" href="mailto:yourmail@gmail.com">Email</a>
+            <a class="btn" href="https://behance.net/" target="_blank">Behance</a>
+            <a class="btn" href="https://facebook.com/" target="_blank">Facebook</a>
+            <a class="btn" href="https://instagram.com/" target="_blank">Instagram</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="box">
+          <h2>Giới thiệu</h2>
+          <p>Mình chuyên thiết kế áo POD, minh hoạ, typography và hệ thống mockup hàng loạt. Ưu tiên bố cục sạch, dễ đọc, tối ưu in ấn (bleed/safe zone) và sản xuất.</p>
+        </div>
+
+        <div class="box">
+          <h2>Kỹ năng</h2>
+          <ul>
+            <li>Photoshop / Illustrator</li>
+            <li>Mockup automation, batch export</li>
+            <li>Layout, typography, concept</li>
+            <li>File in: tách lớp, chuẩn bleed/safe</li>
+          </ul>
+        </div>
+
+        <div class="box">
+          <h2>Dự án nổi bật</h2>
+          <ul>
+            <li>BST áo custom tên / thú cưng</li>
+            <li>Retro groovy typography 4:5</li>
+            <li>Template mockup 12 màu áo</li>
+          </ul>
+        </div>
+
+        <div class="box">
+          <h2>Liên hệ</h2>
+          <ul>
+            <li>Email: yourmail@gmail.com</li>
+            <li>Đà Nẵng, Việt Nam</li>
+            <li>Nhận freelance / remote</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer">© <span id="y"></span> HungArt • GitHub Pages</div>
+    </div>
+  </div>
+  <script>document.getElementById("y").textContent=new Date().getFullYear()</script>
+</body>
+</html>
