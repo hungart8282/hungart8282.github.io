@@ -3,197 +3,506 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>HungArt | Graphic Designer</title>
+  <title>HungArt — Designer Portfolio</title>
+  <meta name="description" content="Portfolio của HungArt — T-shirt design, typography, illustration, mockup automation, print-ready files."/>
   <style>
-    :root{--bg:#0b0f17;--card:#121a2a;--muted:#9fb0d0;--line:#24324d;--chip:#0f1626;}
+    :root{
+      --bg:#070A12;
+      --card:rgba(255,255,255,.04);
+      --line:rgba(255,255,255,.10);
+      --txt:#EAF0FF;
+      --muted:rgba(234,240,255,.72);
+      --muted2:rgba(234,240,255,.55);
+      --accent:#7C5CFF;
+      --accent2:#00E5FF;
+      --radius:18px;
+      --shadow: 0 16px 50px rgba(0,0,0,.45);
+    }
     *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:#e8eefc}
+    html,body{height:100%}
+    body{
+      margin:0;
+      color:var(--txt);
+      font-family: ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      background:
+        radial-gradient(900px 600px at 20% 10%, rgba(124,92,255,.28), transparent 55%),
+        radial-gradient(900px 600px at 80% 25%, rgba(0,229,255,.18), transparent 60%),
+        radial-gradient(900px 600px at 60% 90%, rgba(124,92,255,.14), transparent 60%),
+        var(--bg);
+    }
     a{color:inherit}
-    .wrap{max-width:1100px;margin:0 auto;padding:40px 20px}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .wrap{max-width:1120px;margin:0 auto;padding:28px 18px 60px}
+    .nav{
+      display:flex;align-items:center;justify-content:space-between;gap:14px;
+      padding:14px 14px;border:1px solid var(--line);border-radius:999px;
+      background:rgba(0,0,0,.18);backdrop-filter: blur(10px);
+      position:sticky;top:12px;z-index:20;
+    }
     .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-    .logo{width:44px;height:44px;border-radius:14px;background:#1c2a44;display:grid;place-items:center;font-weight:800}
-    .menu{display:flex;gap:14px;flex-wrap:wrap}
-    .menu a{opacity:.85;text-decoration:none;border:1px solid transparent;padding:8px 10px;border-radius:12px}
-    .menu a:hover{border-color:var(--line);background:#0f1626}
-    .hero{margin-top:22px;background:linear-gradient(180deg,#121a2a, #0f1626);border:1px solid var(--line);border-radius:20px;padding:26px}
-    .kicker{display:inline-flex;gap:10px;align-items:center;background:rgba(255,255,255,.04);border:1px solid var(--line);padding:8px 12px;border-radius:999px;color:var(--muted);font-size:13px}
-    h1{margin:14px 0 8px;font-size:34px;line-height:1.15}
-    .lead{margin:0;color:var(--muted);line-height:1.7;max-width:70ch}
-    .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
-    .btn{display:inline-block;text-decoration:none;border:1px solid #2e4063;padding:10px 14px;border-radius:14px;background:#0f1626}
-    .btn:hover{background:#1a2640}
-    .btn.primary{background:#e8eefc;color:#0b0f17;border-color:#e8eefc;font-weight:700}
-    .btn.primary:hover{opacity:.9}
-    .grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:18px}
-    @media(min-width:900px){.grid{grid-template-columns:1.2fr .8fr}}
-    .panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px}
-    .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-    .chip{background:var(--chip);border:1px solid var(--line);padding:6px 10px;border-radius:999px;font-size:12px;color:var(--muted)}
+    .mark{
+      width:38px;height:38px;border-radius:14px;
+      background: linear-gradient(135deg, rgba(124,92,255,.95), rgba(0,229,255,.75));
+      display:grid;place-items:center;font-weight:900;color:#061020;
+      box-shadow: 0 12px 24px rgba(124,92,255,.22);
+    }
+    .brand b{letter-spacing:.2px}
+    .brand small{display:block;color:var(--muted2);margin-top:2px}
+    .menu{display:flex;gap:6px;flex-wrap:wrap}
+    .menu a{
+      text-decoration:none;
+      padding:8px 10px;border-radius:999px;
+      border:1px solid transparent;color:var(--muted);
+    }
+    .menu a:hover{border-color:var(--line);background:rgba(255,255,255,.04);color:var(--txt)}
+    .btn{
+      text-decoration:none;display:inline-flex;align-items:center;gap:8px;
+      padding:10px 12px;border-radius:14px;border:1px solid var(--line);
+      background:rgba(255,255,255,.04)
+    }
+    .btn:hover{transform:translateY(-1px);transition:.15s;box-shadow:0 16px 40px rgba(0,0,0,.28)}
+    .btn.primary{
+      border-color: transparent;
+      background: linear-gradient(135deg, rgba(124,92,255,.95), rgba(0,229,255,.75));
+      color:#061020;font-weight:800;
+    }
+
+    .hero{
+      margin-top:18px;
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(0,0,0,.18);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;inset:-1px;
+      background:
+        radial-gradient(600px 240px at 20% 20%, rgba(124,92,255,.30), transparent 60%),
+        radial-gradient(600px 240px at 80% 40%, rgba(0,229,255,.18), transparent 60%);
+      pointer-events:none;
+    }
+    .heroInner{
+      position:relative;
+      display:grid;gap:16px;
+      padding:22px;
+      grid-template-columns: 1fr;
+    }
+    @media(min-width:920px){
+      .heroInner{grid-template-columns: 1.15fr .85fr; padding:26px}
+    }
+    .badge{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:8px 12px;border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color: var(--muted); font-size:13px;
+      width:fit-content;
+    }
+    .dot{
+      width:8px;height:8px;border-radius:50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 6px rgba(124,92,255,.12);
+    }
+    h1{margin:10px 0 10px; font-size:34px; line-height:1.15; letter-spacing:.2px}
+    .lead{margin:0;color:var(--muted);line-height:1.75;max-width:70ch}
+    .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+
+    .sideCard{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      border-radius: var(--radius);
+      padding:16px;
+    }
+    .profile{display:flex;gap:12px;align-items:center}
+    .avatar{
+      width:56px;height:56px;border-radius:16px;overflow:hidden;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      flex:0 0 auto;
+    }
+    .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+    .profile b{display:block}
+    .profile small{display:block;color:var(--muted2);margin-top:2px}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+    .stat{
+      border:1px solid var(--line);border-radius:16px;
+      background: rgba(0,0,0,.12);
+      padding:10px;
+    }
+    .stat b{display:block;font-size:14px}
+    .stat span{display:block;color:var(--muted2);font-size:12px;margin-top:2px}
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    .chip{
+      padding:7px 10px;border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      font-size:12px;
+    }
+
     .section{margin-top:22px}
-    .section h2{margin:0 0 10px;font-size:18px}
-    .muted{color:var(--muted)}
-    .projects{display:grid;grid-template-columns:1fr;gap:12px}
-    @media(min-width:900px){.projects{grid-template-columns:repeat(3,1fr)}}
-    .proj{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden}
-    .thumb{height:160px;background:#0f1626;display:grid;place-items:center;color:var(--muted);font-weight:700}
-    .proj .p{padding:14px}
-    .proj h3{margin:0 0 6px;font-size:16px}
-    .proj p{margin:0;color:var(--muted);line-height:1.5;font-size:13px}
-    .row{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-top:10px}
-    .tag{font-size:12px;color:var(--muted)}
-    .footer{margin-top:26px;opacity:.7;font-size:14px}
+    .sectionHead{display:flex;align-items:end;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    .section h2{margin:0;font-size:18px}
+    .section p{margin:6px 0 0;color:var(--muted2)}
+    .divider{height:1px;background:var(--line);margin:14px 0 0}
+
+    .filters{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    .pill{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      padding:8px 10px;border-radius:999px;
+      font-size:12px; cursor:pointer;
+      user-select:none;
+    }
+    .pill.active{color:var(--txt);border-color:rgba(124,92,255,.55);background:rgba(124,92,255,.12)}
+
+    .projects{
+      margin-top:14px;
+      display:grid;gap:12px;
+      grid-template-columns: 1fr;
+    }
+    @media(min-width:700px){.projects{grid-template-columns:repeat(2,1fr)}}
+    @media(min-width:1020px){.projects{grid-template-columns:repeat(3,1fr)}}
+    .proj{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      border-radius: 18px;
+      overflow:hidden;
+      text-decoration:none;
+      transform: translateY(0);
+    }
+    .proj:hover{transform: translateY(-2px); transition:.15s; box-shadow: 0 18px 40px rgba(0,0,0,.30)}
+    .thumb{
+      height:190px; background: rgba(0,0,0,.18);
+      display:block; width:100%;
+      object-fit: cover;
+      border-bottom:1px solid var(--line);
+    }
+    .pbody{padding:12px 12px 13px}
+    .pbody b{display:block}
+    .pbody span{display:block;color:var(--muted2);font-size:12px;margin-top:4px;line-height:1.5}
+    .meta{display:flex;justify-content:space-between;gap:10px;margin-top:10px;color:var(--muted2);font-size:12px}
+
+    .grid2{
+      display:grid;gap:12px;margin-top:12px;
+      grid-template-columns: 1fr;
+    }
+    @media(min-width:920px){.grid2{grid-template-columns: 1fr 1fr}}
+    .card{
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.12);
+      border-radius: var(--radius);
+      padding:16px;
+    }
+    .card ul{margin:10px 0 0;padding-left:18px;color:var(--muted);line-height:1.9}
+    .contact{
+      display:flex;gap:10px;flex-wrap:wrap;margin-top:12px
+    }
+    .foot{margin-top:26px;color:var(--muted2);font-size:14px;opacity:.9}
+
+    /* Modal */
+    .modal{
+      position:fixed;inset:0;display:none;place-items:center;z-index:999;
+      background: rgba(0,0,0,.72);
+      padding:18px;
+    }
+    .modal.open{display:grid}
+    .modalBox{
+      width:min(1100px, 100%);
+      border:1px solid var(--line);
+      background: rgba(10,12,18,.92);
+      border-radius: 18px;
+      overflow:hidden;
+      box-shadow: var(--shadow);
+    }
+    .modalTop{
+      display:flex;justify-content:space-between;align-items:center;gap:10px;
+      padding:10px 12px;border-bottom:1px solid var(--line)
+    }
+    .modalTop b{font-size:14px}
+    .x{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color: var(--txt);
+      border-radius: 12px;
+      padding:8px 10px;
+      cursor:pointer;
+    }
+    .modalImg{width:100%;height:min(72vh, 720px);object-fit:contain;display:block;background:#060812}
+    .kbd{color:var(--muted2);font-size:12px}
   </style>
 </head>
+
 <body>
   <div class="wrap">
     <div class="nav">
       <a class="brand" href="#">
-        <div class="logo">HA</div>
+        <div class="mark">H</div>
         <div>
-          <div style="font-weight:800">HungArt</div>
-          <div style="font-size:12px;color:var(--muted)">Graphic Designer • Da Nang</div>
+          <b>HungArt</b>
+          <small>Designer • T-shirt / Typography / Print-ready</small>
         </div>
       </a>
+
       <div class="menu">
         <a href="#projects">Projects</a>
         <a href="#services">Services</a>
         <a href="#contact">Contact</a>
       </div>
+
+      <a class="btn primary" href="mailto:yourmail@gmail.com">Hire me</a>
     </div>
 
-    <div class="hero">
-      <div class="kicker">✅ Available for freelance • Remote</div>
-      <h1>Thiết kế áo POD & hệ thống mockup<br/>tối ưu cho sản xuất.</h1>
-      <p class="lead">
-        Mình tập trung vào typography, illustration, layout và file in chuẩn (bleed/safe zone).
-        Mục tiêu: design đẹp, rõ, bán tốt và triển khai sản xuất nhanh.
-      </p>
-      <div class="cta">
-        <a class="btn primary" href="#contact">Liên hệ ngay</a>
-        <a class="btn" href="https://behance.net/" target="_blank">Xem Portfolio</a>
-        <a class="btn" href="mailto:yourmail@gmail.com">Email</a>
-      </div>
+    <section class="hero">
+      <div class="heroInner">
+        <div>
+          <div class="badge"><span class="dot"></span> Available for freelance • Remote</div>
+          <h1>Thiết kế mang “tech vibe”<br/>tối ưu cho in ấn & sản xuất.</h1>
+          <p class="lead">
+            Mình chuyên POD / graphic tee, typography, illustration và hệ thống mockup hàng loạt.
+            Mục tiêu: design rõ, mạnh, cá nhân cao — lên sản xuất nhanh (bleed/safe zone).
+          </p>
 
-      <div class="grid">
-        <div class="panel">
-          <div style="font-weight:800;margin-bottom:6px">Điểm mạnh</div>
-          <div class="muted" style="line-height:1.7">
-            • Tối ưu file in (tách lớp, size, safe zone)<br/>
-            • Mockup hàng loạt theo folder/màu<br/>
-            • Style đa dạng: retro groovy, cute, bold typographic
+          <div class="cta">
+            <a class="btn primary" href="#projects">Xem dự án</a>
+            <a class="btn" href="https://behance.net/" target="_blank" rel="noreferrer">Behance</a>
+            <a class="btn" href="https://instagram.com/" target="_blank" rel="noreferrer">Instagram</a>
+            <a class="btn" href="mailto:yourmail@gmail.com">Email</a>
           </div>
-          <div class="chips">
+
+          <div class="chips" aria-label="skills">
             <span class="chip">Photoshop</span>
             <span class="chip">Illustrator</span>
-            <span class="chip">POD</span>
+            <span class="chip">Typography</span>
+            <span class="chip">Illustration</span>
             <span class="chip">Mockup Batch</span>
             <span class="chip">Print-ready</span>
           </div>
         </div>
 
-        <div class="panel">
-          <div style="font-weight:800;margin-bottom:6px">Thông tin nhanh</div>
-          <div class="muted" style="line-height:1.8">
-            📍 Đà Nẵng, Việt Nam<br/>
-            💼 8+ năm kinh nghiệm<br/>
-            🎯 Nhận: T-shirt / Mockup / File in<br/>
-            ⏱️ Thời gian: theo dự án / theo giờ
+        <div class="sideCard">
+          <div class="profile">
+            <div class="avatar">
+              <!-- Upload assets/avatar.jpg -->
+              <img src="assets/avatar.jpg" alt="Avatar"/>
+            </div>
+            <div>
+              <b>HungArt</b>
+              <small>Đà Nẵng, Việt Nam • 8+ năm</small>
+            </div>
+          </div>
+
+          <div class="stats">
+            <div class="stat"><b>100+</b><span>Design outputs</span></div>
+            <div class="stat"><b>12</b><span>Mockup colors</span></div>
+            <div class="stat"><b>24h</b><span>Fast turnaround</span></div>
+          </div>
+
+          <div class="chips">
+            <span class="chip">POD / Etsy</span>
+            <span class="chip">Sublimation</span>
+            <span class="chip">Silk-screen</span>
+            <span class="chip">Vector + PNG</span>
+          </div>
+
+          <div style="margin-top:12px;color:var(--muted2);line-height:1.6">
+            “Thiết kế không chỉ đẹp — phải <b>rõ</b>, <b>bán tốt</b> và <b>chạy production</b>.”
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div id="projects" class="section">
-      <h2>Projects</h2>
-      <div class="muted" style="margin-bottom:12px">Thay 6 ô dưới bằng ảnh dự án của bạn (PNG/JPG) + mô tả ngắn.</div>
-
-      <div class="projects">
-        <div class="proj">
-          <div class="thumb">Ảnh dự án 1</div>
-          <div class="p">
-            <h3>Retro Groovy Typography</h3>
-            <p>Thiết kế 4:5 cho POD, tối ưu readability từ xa.</p>
-            <div class="row"><span class="tag">Typography • POD</span><span class="tag">2026</span></div>
-          </div>
-        </div>
-
-        <div class="proj">
-          <div class="thumb">Ảnh dự án 2</div>
-          <div class="p">
-            <h3>Cute Character Tee</h3>
-            <p>Nhân vật kute, bố cục sạch, phù hợp in áo.</p>
-            <div class="row"><span class="tag">Illustration</span><span class="tag">2026</span></div>
-          </div>
-        </div>
-
-        <div class="proj">
-          <div class="thumb">Ảnh dự án 3</div>
-          <div class="p">
-            <h3>Mockup System 12 Colors</h3>
-            <p>Template export hàng loạt mockup theo màu/folder.</p>
-            <div class="row"><span class="tag">Automation</span><span class="tag">2026</span></div>
-          </div>
-        </div>
-
-        <div class="proj">
-          <div class="thumb">Ảnh dự án 4</div>
-          <div class="p">
-            <h3>Pet Name Custom</h3>
-            <p>Custom tên + pet, dễ cá nhân hoá cho khách.</p>
-            <div class="row"><span class="tag">Custom</span><span class="tag">2026</span></div>
-          </div>
-        </div>
-
-        <div class="proj">
-          <div class="thumb">Ảnh dự án 5</div>
-          <div class="p">
-            <h3>Print-ready Layout</h3>
-            <p>Chuẩn file in: safe/bleed, căn lề, tách nền.</p>
-            <div class="row"><span class="tag">Production</span><span class="tag">2026</span></div>
-          </div>
-        </div>
-
-        <div class="proj">
-          <div class="thumb">Ảnh dự án 6</div>
-          <div class="p">
-            <h3>Bold Graphic Tee</h3>
-            <p>Thiết kế graphic rõ nét, phù hợp in lụa/POD.</p>
-            <div class="row"><span class="tag">Graphic</span><span class="tag">2026</span></div>
-          </div>
+    <section id="projects" class="section">
+      <div class="sectionHead">
+        <div>
+          <h2>Projects</h2>
+          <p>Click vào ảnh để xem full. Bạn chỉ cần thay file ảnh & nội dung là xong.</p>
         </div>
       </div>
-    </div>
+      <div class="divider"></div>
 
-    <div id="services" class="section">
-      <h2>Services</h2>
-      <div class="panel">
-        <div class="muted" style="line-height:1.8">
-          ✅ T-shirt design (POD/Etsy)<br/>
-          ✅ Vector/PNG tách nền, file in chuẩn<br/>
-          ✅ Mockup hàng loạt (theo màu/folder/template)<br/>
-          ✅ Redesign theo brief, tối ưu bố cục & typography
+      <div class="filters" id="filters">
+        <span class="pill active" data-tag="all">All</span>
+        <span class="pill" data-tag="typography">Typography</span>
+        <span class="pill" data-tag="illustration">Illustration</span>
+        <span class="pill" data-tag="mockup">Mockup</span>
+        <span class="pill" data-tag="print">Print-ready</span>
+      </div>
+
+      <div class="projects" id="projectGrid">
+        <!-- ĐỔI TÊN ẢNH: assets/p1.jpg ... -->
+        <a class="proj" href="assets/p1.jpg" data-tag="typography" data-title="Retro Groovy Tee">
+          <img class="thumb" src="assets/p1.jpg" alt="Retro Groovy Tee">
+          <div class="pbody">
+            <b>Retro Groovy Tee</b>
+            <span>Typography 4:5 • Readability mạnh • POD-ready</span>
+            <div class="meta"><span>#typography</span><span>2026</span></div>
+          </div>
+        </a>
+
+        <a class="proj" href="assets/p2.jpg" data-tag="illustration" data-title="Cute Character Tee">
+          <img class="thumb" src="assets/p2.jpg" alt="Cute Character Tee">
+          <div class="pbody">
+            <b>Cute Character Tee</b>
+            <span>Illustration • Bố cục sạch • Dễ in & rõ nét</span>
+            <div class="meta"><span>#illustration</span><span>2026</span></div>
+          </div>
+        </a>
+
+        <a class="proj" href="assets/p3.jpg" data-tag="mockup" data-title="Mockup System 12 Colors">
+          <img class="thumb" src="assets/p3.jpg" alt="Mockup System 12 Colors">
+          <div class="pbody">
+            <b>Mockup System 12 Colors</b>
+            <span>Batch export theo folder/màu • Tối ưu workflow</span>
+            <div class="meta"><span>#mockup</span><span>2026</span></div>
+          </div>
+        </a>
+
+        <a class="proj" href="assets/p4.jpg" data-tag="print" data-title="Print-ready Layout">
+          <img class="thumb" src="assets/p4.jpg" alt="Print-ready Layout">
+          <div class="pbody">
+            <b>Print-ready Layout</b>
+            <span>Safe zone + bleed • Tách nền • Chuẩn xưởng</span>
+            <div class="meta"><span>#print</span><span>2026</span></div>
+          </div>
+        </a>
+
+        <a class="proj" href="assets/p5.jpg" data-tag="typography" data-title="Bold Type Series">
+          <img class="thumb" src="assets/p5.jpg" alt="Bold Type Series">
+          <div class="pbody">
+            <b>Bold Type Series</b>
+            <span>Typographic system • Modern tech vibe • Clean</span>
+            <div class="meta"><span>#typography</span><span>2026</span></div>
+          </div>
+        </a>
+
+        <a class="proj" href="assets/p6.jpg" data-tag="illustration" data-title="Pet Name Custom">
+          <img class="thumb" src="assets/p6.jpg" alt="Pet Name Custom">
+          <div class="pbody">
+            <b>Pet Name Custom</b>
+            <span>Custom pet/name • Cá nhân hoá cao • POD</span>
+            <div class="meta"><span>#illustration</span><span>2026</span></div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <div class="sectionHead">
+        <div>
+          <h2>Services</h2>
+          <p>Gói dịch vụ đúng workflow dân POD / sản xuất.</p>
         </div>
       </div>
-    </div>
+      <div class="divider"></div>
 
-    <div id="contact" class="section">
-      <h2>Contact</h2>
-      <div class="panel">
-        <div class="muted" style="line-height:1.8">
+      <div class="grid2">
+        <div class="card">
+          <b>Design</b>
+          <ul>
+            <li>T-shirt design (POD/Etsy)</li>
+            <li>Typography / Illustration / Redesign</li>
+            <li>Vector + PNG (transparent), clean outline</li>
+          </ul>
+        </div>
+        <div class="card">
+          <b>Production</b>
+          <ul>
+            <li>File in chuẩn: safe zone + bleed</li>
+            <li>Batch mockup theo template / folder / màu</li>
+            <li>Chuẩn hoá naming, export hàng loạt</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="sectionHead">
+        <div>
+          <h2>Contact</h2>
+          <p>Đổi email + link social của bạn ở đây.</p>
+        </div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="card">
+        <div style="color:var(--muted);line-height:1.9">
           Email: <a href="mailto:yourmail@gmail.com">yourmail@gmail.com</a><br/>
-          Behance: <a href="https://behance.net/" target="_blank">behance.net/...</a><br/>
-          Instagram: <a href="https://instagram.com/" target="_blank">@...</a>
+          Behance: <a href="https://behance.net/" target="_blank" rel="noreferrer">behance.net/...</a><br/>
+          Instagram: <a href="https://instagram.com/" target="_blank" rel="noreferrer">@...</a>
         </div>
-        <div class="cta" style="margin-top:14px">
+
+        <div class="contact">
           <a class="btn primary" href="mailto:yourmail@gmail.com">Gửi email</a>
-          <a class="btn" href="https://linkedin.com/" target="_blank">LinkedIn</a>
+          <a class="btn" href="https://facebook.com/" target="_blank" rel="noreferrer">Facebook</a>
+          <a class="btn" href="https://linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
         </div>
       </div>
-    </div>
 
-    <div class="footer">© <span id="y"></span> HungArt • GitHub Pages</div>
+      <div class="foot">© <span id="y"></span> HungArt • Built on GitHub Pages</div>
+    </section>
   </div>
-  <script>document.getElementById("y").textContent=new Date().getFullYear()</script>
+
+  <!-- Modal -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modalBox">
+      <div class="modalTop">
+        <div>
+          <b id="mTitle">Preview</b>
+          <div class="kbd">Esc để đóng • Click nền để thoát</div>
+        </div>
+        <button class="x" id="mClose">Close</button>
+      </div>
+      <img class="modalImg" id="mImg" alt="Preview"/>
+    </div>
+  </div>
+
+  <script>
+    // year
+    document.getElementById("y").textContent = new Date().getFullYear();
+
+    // Filter
+    const pills = [...document.querySelectorAll(".pill")];
+    const cards = [...document.querySelectorAll(".proj")];
+    pills.forEach(p => p.addEventListener("click", () => {
+      pills.forEach(x => x.classList.remove("active"));
+      p.classList.add("active");
+      const tag = p.dataset.tag;
+      cards.forEach(c => {
+        const ok = tag === "all" || c.dataset.tag === tag;
+        c.style.display = ok ? "block" : "none";
+      });
+    }));
+
+    // Modal viewer
+    const modal = document.getElementById("modal");
+    const mImg = document.getElementById("mImg");
+    const mTitle = document.getElementById("mTitle");
+    const mClose = document.getElementById("mClose");
+
+    function openModal(src, title){
+      mImg.src = src;
+      mTitle.textContent = title || "Preview";
+      modal.classList.add("open");
+      modal.setAttribute("aria-hidden","false");
+    }
+    function closeModal(){
+      modal.classList.remove("open");
+      modal.setAttribute("aria-hidden","true");
+      mImg.src = "";
+    }
+
+    cards.forEach(a => a.addEventListener("click", (e) => {
+      e.preventDefault();
+      openModal(a.getAttribute("href"), a.dataset.title);
+    }));
+
+    mClose.addEventListener("click", closeModal);
+    modal.addEventListener("click", (e) => { if(e.target === modal) closeModal(); });
+    window.addEventListener("keydown", (e)=>{ if(e.key === "Escape") closeModal(); });
+  </script>
 </body>
 </html>
