@@ -3,81 +3,196 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>HungArt | Portfolio</title>
+  <title>HungArt | Graphic Designer</title>
   <style>
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;margin:0;background:#0b0f17;color:#e8eefc}
-    .wrap{max-width:980px;margin:0 auto;padding:48px 20px}
-    .card{background:#121a2a;border:1px solid #24324d;border-radius:18px;padding:28px;box-shadow:0 12px 30px rgba(0,0,0,.25)}
-    .top{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
-    .avatar{width:84px;height:84px;border-radius:18px;background:#1c2a44;display:grid;place-items:center;font-weight:800}
-    h1{margin:0;font-size:30px}
-    .sub{opacity:.82;margin-top:6px;line-height:1.5}
-    .btns{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
-    a.btn{display:inline-block;padding:10px 14px;border-radius:12px;border:1px solid #2e4063;color:#e8eefc;text-decoration:none}
-    a.btn:hover{background:#1a2640}
+    :root{--bg:#0b0f17;--card:#121a2a;--muted:#9fb0d0;--line:#24324d;--chip:#0f1626;}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:#e8eefc}
+    a{color:inherit}
+    .wrap{max-width:1100px;margin:0 auto;padding:40px 20px}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+    .logo{width:44px;height:44px;border-radius:14px;background:#1c2a44;display:grid;place-items:center;font-weight:800}
+    .menu{display:flex;gap:14px;flex-wrap:wrap}
+    .menu a{opacity:.85;text-decoration:none;border:1px solid transparent;padding:8px 10px;border-radius:12px}
+    .menu a:hover{border-color:var(--line);background:#0f1626}
+    .hero{margin-top:22px;background:linear-gradient(180deg,#121a2a, #0f1626);border:1px solid var(--line);border-radius:20px;padding:26px}
+    .kicker{display:inline-flex;gap:10px;align-items:center;background:rgba(255,255,255,.04);border:1px solid var(--line);padding:8px 12px;border-radius:999px;color:var(--muted);font-size:13px}
+    h1{margin:14px 0 8px;font-size:34px;line-height:1.15}
+    .lead{margin:0;color:var(--muted);line-height:1.7;max-width:70ch}
+    .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+    .btn{display:inline-block;text-decoration:none;border:1px solid #2e4063;padding:10px 14px;border-radius:14px;background:#0f1626}
+    .btn:hover{background:#1a2640}
+    .btn.primary{background:#e8eefc;color:#0b0f17;border-color:#e8eefc;font-weight:700}
+    .btn.primary:hover{opacity:.9}
     .grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:18px}
-    @media(min-width:900px){.grid{grid-template-columns:1fr 1fr}}
-    .box{background:#0f1626;border:1px solid #22304a;border-radius:16px;padding:18px}
-    h2{margin:0 0 10px;font-size:18px}
-    p{margin:0;opacity:.9;line-height:1.6}
-    ul{margin:8px 0 0;padding-left:18px;opacity:.9;line-height:1.8}
-    .footer{opacity:.7;margin-top:22px;font-size:14px}
+    @media(min-width:900px){.grid{grid-template-columns:1.2fr .8fr}}
+    .panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px}
+    .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    .chip{background:var(--chip);border:1px solid var(--line);padding:6px 10px;border-radius:999px;font-size:12px;color:var(--muted)}
+    .section{margin-top:22px}
+    .section h2{margin:0 0 10px;font-size:18px}
+    .muted{color:var(--muted)}
+    .projects{display:grid;grid-template-columns:1fr;gap:12px}
+    @media(min-width:900px){.projects{grid-template-columns:repeat(3,1fr)}}
+    .proj{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+    .thumb{height:160px;background:#0f1626;display:grid;place-items:center;color:var(--muted);font-weight:700}
+    .proj .p{padding:14px}
+    .proj h3{margin:0 0 6px;font-size:16px}
+    .proj p{margin:0;color:var(--muted);line-height:1.5;font-size:13px}
+    .row{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-top:10px}
+    .tag{font-size:12px;color:var(--muted)}
+    .footer{margin-top:26px;opacity:.7;font-size:14px}
   </style>
 </head>
 <body>
   <div class="wrap">
-    <div class="card">
-      <div class="top">
-        <div class="avatar">HA</div>
+    <div class="nav">
+      <a class="brand" href="#">
+        <div class="logo">HA</div>
         <div>
-          <h1>HungArt</h1>
-          <div class="sub">Graphic Designer • Đà Nẵng • 8+ năm kinh nghiệm<br/>T-shirt design • Mockup • Print-ready files</div>
-          <div class="btns">
-            <a class="btn" href="mailto:yourmail@gmail.com">Email</a>
-            <a class="btn" href="https://behance.net/" target="_blank">Behance</a>
-            <a class="btn" href="https://facebook.com/" target="_blank">Facebook</a>
-            <a class="btn" href="https://instagram.com/" target="_blank">Instagram</a>
-          </div>
+          <div style="font-weight:800">HungArt</div>
+          <div style="font-size:12px;color:var(--muted)">Graphic Designer • Da Nang</div>
         </div>
+      </a>
+      <div class="menu">
+        <a href="#projects">Projects</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+
+    <div class="hero">
+      <div class="kicker">✅ Available for freelance • Remote</div>
+      <h1>Thiết kế áo POD & hệ thống mockup<br/>tối ưu cho sản xuất.</h1>
+      <p class="lead">
+        Mình tập trung vào typography, illustration, layout và file in chuẩn (bleed/safe zone).
+        Mục tiêu: design đẹp, rõ, bán tốt và triển khai sản xuất nhanh.
+      </p>
+      <div class="cta">
+        <a class="btn primary" href="#contact">Liên hệ ngay</a>
+        <a class="btn" href="https://behance.net/" target="_blank">Xem Portfolio</a>
+        <a class="btn" href="mailto:yourmail@gmail.com">Email</a>
       </div>
 
       <div class="grid">
-        <div class="box">
-          <h2>Giới thiệu</h2>
-          <p>Mình chuyên thiết kế áo POD, minh hoạ, typography và hệ thống mockup hàng loạt. Ưu tiên bố cục sạch, dễ đọc, tối ưu in ấn (bleed/safe zone) và sản xuất.</p>
+        <div class="panel">
+          <div style="font-weight:800;margin-bottom:6px">Điểm mạnh</div>
+          <div class="muted" style="line-height:1.7">
+            • Tối ưu file in (tách lớp, size, safe zone)<br/>
+            • Mockup hàng loạt theo folder/màu<br/>
+            • Style đa dạng: retro groovy, cute, bold typographic
+          </div>
+          <div class="chips">
+            <span class="chip">Photoshop</span>
+            <span class="chip">Illustrator</span>
+            <span class="chip">POD</span>
+            <span class="chip">Mockup Batch</span>
+            <span class="chip">Print-ready</span>
+          </div>
         </div>
 
-        <div class="box">
-          <h2>Kỹ năng</h2>
-          <ul>
-            <li>Photoshop / Illustrator</li>
-            <li>Mockup automation, batch export</li>
-            <li>Layout, typography, concept</li>
-            <li>File in: tách lớp, chuẩn bleed/safe</li>
-          </ul>
-        </div>
-
-        <div class="box">
-          <h2>Dự án nổi bật</h2>
-          <ul>
-            <li>BST áo custom tên / thú cưng</li>
-            <li>Retro groovy typography 4:5</li>
-            <li>Template mockup 12 màu áo</li>
-          </ul>
-        </div>
-
-        <div class="box">
-          <h2>Liên hệ</h2>
-          <ul>
-            <li>Email: yourmail@gmail.com</li>
-            <li>Đà Nẵng, Việt Nam</li>
-            <li>Nhận freelance / remote</li>
-          </ul>
+        <div class="panel">
+          <div style="font-weight:800;margin-bottom:6px">Thông tin nhanh</div>
+          <div class="muted" style="line-height:1.8">
+            📍 Đà Nẵng, Việt Nam<br/>
+            💼 8+ năm kinh nghiệm<br/>
+            🎯 Nhận: T-shirt / Mockup / File in<br/>
+            ⏱️ Thời gian: theo dự án / theo giờ
+          </div>
         </div>
       </div>
-
-      <div class="footer">© <span id="y"></span> HungArt • GitHub Pages</div>
     </div>
+
+    <div id="projects" class="section">
+      <h2>Projects</h2>
+      <div class="muted" style="margin-bottom:12px">Thay 6 ô dưới bằng ảnh dự án của bạn (PNG/JPG) + mô tả ngắn.</div>
+
+      <div class="projects">
+        <div class="proj">
+          <div class="thumb">Ảnh dự án 1</div>
+          <div class="p">
+            <h3>Retro Groovy Typography</h3>
+            <p>Thiết kế 4:5 cho POD, tối ưu readability từ xa.</p>
+            <div class="row"><span class="tag">Typography • POD</span><span class="tag">2026</span></div>
+          </div>
+        </div>
+
+        <div class="proj">
+          <div class="thumb">Ảnh dự án 2</div>
+          <div class="p">
+            <h3>Cute Character Tee</h3>
+            <p>Nhân vật kute, bố cục sạch, phù hợp in áo.</p>
+            <div class="row"><span class="tag">Illustration</span><span class="tag">2026</span></div>
+          </div>
+        </div>
+
+        <div class="proj">
+          <div class="thumb">Ảnh dự án 3</div>
+          <div class="p">
+            <h3>Mockup System 12 Colors</h3>
+            <p>Template export hàng loạt mockup theo màu/folder.</p>
+            <div class="row"><span class="tag">Automation</span><span class="tag">2026</span></div>
+          </div>
+        </div>
+
+        <div class="proj">
+          <div class="thumb">Ảnh dự án 4</div>
+          <div class="p">
+            <h3>Pet Name Custom</h3>
+            <p>Custom tên + pet, dễ cá nhân hoá cho khách.</p>
+            <div class="row"><span class="tag">Custom</span><span class="tag">2026</span></div>
+          </div>
+        </div>
+
+        <div class="proj">
+          <div class="thumb">Ảnh dự án 5</div>
+          <div class="p">
+            <h3>Print-ready Layout</h3>
+            <p>Chuẩn file in: safe/bleed, căn lề, tách nền.</p>
+            <div class="row"><span class="tag">Production</span><span class="tag">2026</span></div>
+          </div>
+        </div>
+
+        <div class="proj">
+          <div class="thumb">Ảnh dự án 6</div>
+          <div class="p">
+            <h3>Bold Graphic Tee</h3>
+            <p>Thiết kế graphic rõ nét, phù hợp in lụa/POD.</p>
+            <div class="row"><span class="tag">Graphic</span><span class="tag">2026</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="services" class="section">
+      <h2>Services</h2>
+      <div class="panel">
+        <div class="muted" style="line-height:1.8">
+          ✅ T-shirt design (POD/Etsy)<br/>
+          ✅ Vector/PNG tách nền, file in chuẩn<br/>
+          ✅ Mockup hàng loạt (theo màu/folder/template)<br/>
+          ✅ Redesign theo brief, tối ưu bố cục & typography
+        </div>
+      </div>
+    </div>
+
+    <div id="contact" class="section">
+      <h2>Contact</h2>
+      <div class="panel">
+        <div class="muted" style="line-height:1.8">
+          Email: <a href="mailto:yourmail@gmail.com">yourmail@gmail.com</a><br/>
+          Behance: <a href="https://behance.net/" target="_blank">behance.net/...</a><br/>
+          Instagram: <a href="https://instagram.com/" target="_blank">@...</a>
+        </div>
+        <div class="cta" style="margin-top:14px">
+          <a class="btn primary" href="mailto:yourmail@gmail.com">Gửi email</a>
+          <a class="btn" href="https://linkedin.com/" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">© <span id="y"></span> HungArt • GitHub Pages</div>
   </div>
   <script>document.getElementById("y").textContent=new Date().getFullYear()</script>
 </body>
